@@ -1,0 +1,17 @@
+Project elysium_archives {
+    databnase_type: 'PostgreSQL'
+    Note: 'Elysium Archives database project'
+}
+
+Table user_management.vendor {
+    vendor_id int [primary key]
+    vendor_name varchar
+    vendor_address varchar
+    vendor_phone varchar
+    vendor_email varchar
+    vendor_url varchar
+    vendor_contact varchar
+    vendor_contact_phone varchar
+    vendor_contact_email varchar
+    vendor_notes varchar
+}
