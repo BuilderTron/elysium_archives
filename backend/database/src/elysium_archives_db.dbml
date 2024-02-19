@@ -4,14 +4,27 @@ Project elysium_archives {
 }
 
 Table user_management.vendor {
-    vendor_id int [primary key]
-    vendor_name varchar
-    vendor_address varchar
-    vendor_phone varchar
-    vendor_email varchar
-    vendor_url varchar
-    vendor_contact varchar
-    vendor_contact_phone varchar
-    vendor_contact_email varchar
-    vendor_notes varchar
+    vendor_id integer [primary key, increment]
+    name varchar(255)[not null]
+    email varchar(255)[unique, not null]
+    password_hash varchar(255)[not null]
+}
+
+Table user_management.vendor_profiles {
+    vendor_id integer [primary key, ref: > user_management.vendor.vendor_id]
+    about text
+    address varchar(255)
+    phone varchar(255)
+    website varchar(255)
+    profile_picture varchar(255)
+}
+
+Table user_management.customer {
+    customer_id integer [primary key, increment]
+    vendor_id integer [not null, ref: > user_management.vendor.vendor_id]
+    name varchar(255)[not null]
+    address varchar(255)[not null]
+    phone varchar(255)[not null]
+    email varchar(255)[unique, not null]
+    password_hash varchar(255)[not null]
 }
